@@ -16,6 +16,9 @@ let data = [
 ];
 
 module.exports = {
+  create(newJob) {
+    data.push(newJob);
+  },
   get() {
     return data;
   },
