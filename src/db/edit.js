@@ -12,10 +12,11 @@ module.exports = {
     },
     async insertingJob(data) {
       const db = await Database();
-      // await db.run(`INSERT INTO jobs 
-      //     (name, daily_hours, total_hours, created_at, profile_id)
-      //     VALUES (${}, ${}, ${}, ${}, ${})
-      //     ;`);
+      await db.run(`INSERT INTO jobs 
+          (name, daily_hours, total_hours, created_at, profile_id)
+          VALUES ("${data.name}", ${data["daily-hours"]}, ${data["total-hours"]}, ${data.created_at}, 
+          ${data.profile_id})
+          ;`);
       await db.close();
     }
   },

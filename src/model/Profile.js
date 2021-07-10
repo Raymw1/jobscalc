@@ -7,6 +7,7 @@ module.exports = {
     let data = await db.get(`SELECT * FROM profile;`);
     await db.close();
     return {
+      id: data.id,
       name: data.name,
       avatar: data.avatar,
       "monthly-budget": data.monthly_budget,
