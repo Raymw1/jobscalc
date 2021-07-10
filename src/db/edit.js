@@ -18,7 +18,7 @@ module.exports = {
           ${data.profile_id})
           ;`);
       await db.close();
-    }
+    },
   },
   updating: {
     async updateProfile(data) {
@@ -30,15 +30,15 @@ module.exports = {
           ;`);
       await db.close();
     },
-    // async updateJob(data) {
-    //   const db = await Database();
-    //   await db.run(`UPDATE profile SET
-    //       name = "${data.name}", avatar = "${data.avatar}", monthly_budget = ${data["monthly-budget"]}, 
-    //       days_per_week = ${data["days-per-week"]},hours_per_day = ${data["hours-per-day"]}, 
-    //       vacation_per_year = ${data["vacation-per-year"]}, value_hour = ${data["value-hour"]}
-    //       ;`);
-    //   await db.close();
-    // }
+    async updateJob(job) {
+      const db = await Database();
+      await db.run(`UPDATE jobs SET
+          name = "${job.name}", daily_hours = ${job["daily-hours"]}, 
+          total_hours = ${job["total-hours"]}, created_at = ${job.created_at}, 
+          profile_id = ${job.profile_id} WHERE id = ${job.id}
+          ;`);
+      await db.close();
+    },
   },
 };
 

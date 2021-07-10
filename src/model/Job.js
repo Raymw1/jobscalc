@@ -14,11 +14,11 @@ module.exports = {
       name: job.name,
       "daily-hours": job.daily_hours,
       "total-hours": job.total_hours,
-      created_at: job.created_at
+      created_at: job.created_at,
     }));
   },
-  update(newJob) {
-    data = newJob;
+  async update(newJob) {
+    await editDb.updating.updateJob(newJob);
   },
   async delete(jobId) {
     const db = await Database();
