@@ -20,7 +20,10 @@ module.exports = {
   update(newJob) {
     data = newJob;
   },
-  delete(jobId) {
-    data = data.filter((job) => Number(job.id) !== Number(jobId)); // Return when condition is FALSE
+  async delete(jobId) {
+    const db = await Database();
+    const jobs = await db.all(`DELETE FROM jobs WHERE id = ${Number(jobId)};`);
+    await db.close();
+    // jobs = jobs.filter((job) => Number(job.id) !== Number(jobId)); // Return when condition is FALSE
   },
 };

@@ -39,7 +39,7 @@ module.exports = {
     //       ;`);
     //   await db.close();
     // }
-  }
+  },
 };
 
 // a.insertingProfile();
