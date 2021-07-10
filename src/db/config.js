@@ -1,10 +1,8 @@
 const sqlite3 = require("sqlite3");
-const { open } = require("sqlite"); // Get open() from sqlite   // Instead of sqlite.open()
+const { open } = require("sqlite"); // Get only open
 
-module.exports = () => {
+module.exports = () =>
   open({
-    filename: "./database.sqlite",
+    filename: "./src/db/database.sqlite",
     driver: sqlite3.Database,
   });
-};
-

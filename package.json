@@ -4,6 +4,7 @@
   "description": "A Freelance Calculator Web App developed during Maratona Discover 2",
   "main": "src/server.js",
   "scripts": {
+    "init-db": "node ./src/db/init.js",
     "start": "node .",
     "dev": "nodemon ."
   },
