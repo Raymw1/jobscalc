@@ -5,7 +5,7 @@ module.exports = {
     const dueDay = createdDate.getDate() + Number(remainingDays);
     const dueDateInMs = createdDate.setDate(dueDay);
     const timeDiffInMs = dueDateInMs - Date.now();
-    const timeDiff = Math.floor(timeDiffInMs / (3600000 * 24));
+    const timeDiff = Math.ceil(timeDiffInMs / (3600000 * 24));
     return timeDiff;
   },
   calculateBudget(job, valueHour) {
